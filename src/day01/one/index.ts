@@ -1,6 +1,6 @@
 import * as fs from 'fs';
 
-function stringToSum(input: string): number[] {
+export function stringToSum(input: string): number[] {
     const stringGroups = input.split("\n\n");
     const stringArrayGroups = stringGroups.map(stringGroup => stringGroup.split(/\r?\n|\r|\n/g));
     const numberGroups = stringArrayGroups.map(stringGroup => stringGroup.map(singleString => parseInt(singleString)));
@@ -21,6 +21,6 @@ export function findMostCaloriesCarriedByAnElf(input: string): number {
     return highestCalories;
 }
 
-const input = fs.readFileSync('src/day01/one/input.txt').toString('utf-8');
+const input = fs.readFileSync('src/day01/input.txt').toString('utf-8');
 const mostCarriedCalories = findMostCaloriesCarriedByAnElf(input);
 console.log(mostCarriedCalories);
