@@ -1,4 +1,4 @@
-import * as fs from 'fs';
+import { executeAndPrint, sumArrayValues } from '../../util';
 
 const rockPaperScissors = {
     A: 'rock',
@@ -35,9 +35,8 @@ export function calculateScore(input: string): number {
     const rounds = input.split("\n").map(round => round.split(' '));
     const scores = rounds.map(round => getMyScore(round[0] as RockPaperScissors, round[1] as RockPaperScissors));
 
-    return scores.reduce((partialSum, add) => partialSum + add, 0);
+    return sumArrayValues(scores);
 }
 
-const input = fs.readFileSync('src/day02/input.txt').toString('utf-8');
-const score = calculateScore(input);
-console.log(score);
+executeAndPrint('src/day02/input.txt', calculateScore);
+

@@ -1,10 +1,10 @@
-import * as fs from 'fs';
+import { executeAndPrint, sumArrayValues } from '../../util';
 
 export function stringToSum(input: string): number[] {
     const stringGroups = input.split("\n\n");
     const stringArrayGroups = stringGroups.map(stringGroup => stringGroup.split(/\r?\n|\r|\n/g));
     const numberGroups = stringArrayGroups.map(stringGroup => stringGroup.map(singleString => parseInt(singleString)));
-    const numberSums = numberGroups.map(numberGroup => numberGroup.reduce((partialSum, add) => partialSum + add, 0));
+    const numberSums = numberGroups.map(numberGroup => sumArrayValues(numberGroup));
 
     return numberSums;
 }
@@ -21,6 +21,4 @@ export function findMostCaloriesCarriedByAnElf(input: string): number {
     return highestCalories;
 }
 
-const input = fs.readFileSync('src/day01/input.txt').toString('utf-8');
-const mostCarriedCalories = findMostCaloriesCarriedByAnElf(input);
-console.log(mostCarriedCalories);
+executeAndPrint('src/day01/input.txt', findMostCaloriesCarriedByAnElf);

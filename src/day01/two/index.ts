@@ -1,4 +1,4 @@
-import * as fs from 'fs';
+import { executeAndPrint, sumArrayValues } from '../../util';
 import { stringToSum } from "../one";
 
 export function findTopThreeCarriedCalories(input: string): number {
@@ -9,9 +9,7 @@ export function findTopThreeCarriedCalories(input: string): number {
 
     elvesCalories.length = 3
 
-    return elvesCalories.reduce((partialSum, add) => partialSum + add, 0);
+    return sumArrayValues(elvesCalories);
 }
 
-const input = fs.readFileSync('src/day01/input.txt').toString('utf-8');
-const topThreeCarriedCalories = findTopThreeCarriedCalories(input);
-console.log(topThreeCarriedCalories);
+executeAndPrint('src/day01/input.txt', findTopThreeCarriedCalories);
