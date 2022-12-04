@@ -1,8 +1,8 @@
-import { executeAndPrint, sumArrayValues } from '../../util';
+import { executeAndPrint, readLinesOfFile, sumArrayValues } from '../../util';
 import { calculatePriorityByLetter } from '../util';
 
 export function calculatePriority(input: string): number {
-    const rucksacks = input.split('\n');
+    const rucksacks = readLinesOfFile(input);
     const groups = [];
     while (rucksacks.length > 0)
         groups.push(rucksacks.splice(0, 3));

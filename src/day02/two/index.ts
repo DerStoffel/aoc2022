@@ -1,4 +1,4 @@
-import { executeAndPrint, sumArrayValues } from '../../util';
+import { executeAndPrint, readLinesOfFile, sumArrayValues } from '../../util';
 
 const rockPaperScissors = {
     A: 'rock',
@@ -50,7 +50,7 @@ function getMyScore(playerOne: RockPaperScissors, playerTwo: Strategy): number {
 }
 
 export function calculateScore(input: string): number {
-    const rounds = input.split("\n").map(round => round.split(' '));
+    const rounds = readLinesOfFile(input).map(round => round.split(' '));
     const scores = rounds.map(round => getMyScore(round[0] as RockPaperScissors, round[1] as Strategy));
 
     return sumArrayValues(scores);
