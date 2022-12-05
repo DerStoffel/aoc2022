@@ -1,4 +1,4 @@
-import { rearrangeCrates } from ".";
+import { rearrangeCrates } from "./index";
 
 describe('crane operate puzzle', () => {
     const input = `    [D]    
@@ -11,7 +11,7 @@ move 3 from 1 to 3
 move 2 from 2 to 1
 move 1 from 1 to 2`
     
-    test('re-arrange crates', () => {
-        expect(rearrangeCrates(input)).toBe('CMZ');
+    test('CrateMover 9001', () => {
+        expect(rearrangeCrates(input)).toBe('MCD');
     })
 })
